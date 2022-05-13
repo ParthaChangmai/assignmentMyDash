@@ -1,0 +1,131 @@
+@use '../utils' as *;
+@import '../variables/Variable.scss';
+
+.home {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 94vh;
+}
+
+.calander {
+	margin-top: 0rem;
+
+	@include breakpoint-down(medium) {
+		display: none;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&--header {
+			margin-bottom: 0;
+			font-family: $bodyFont;
+		}
+		&--textOne {
+			font-size: small;
+			width: rem(350);
+			font-family: $bodyFont;
+			margin-bottom: 0;
+			margin-left: 0.6rem;
+		}
+		&--textTwo {
+			font-size: small;
+			width: rem(350);
+			font-family: $bodyFont;
+			margin-top: 0.2rem;
+		}
+	}
+}
+
+.form {
+	border: 1px solid rgb(232, 232, 232);
+	padding: 1rem 0 5rem 5rem;
+	margin-left: 0;
+	width: 50vh;
+	border-radius: 0.5rem;
+	outline: none;
+	box-shadow: 1px 2.5px rgb(168, 168, 168);
+	background-color: white;
+	@include breakpoint-down(medium) {
+		width: 24vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: rem(70);
+		margin-top: rem(50);
+	}
+	&__heading {
+		font-weight: bolder;
+		font-size: x-large;
+
+		font-family: $bodyFont;
+		padding-bottom: 1rem;
+		margin-top: 3rem;
+		margin-bottom: 2rem;
+	}
+	&__body {
+		display: flex;
+		flex-direction: column;
+		&--text {
+			font-size: small;
+			margin-bottom: 0.5rem;
+			color: rgb(120, 120, 120);
+			font-family: $bodyFont;
+		}
+		&--input {
+			border-radius: 0.2rem;
+			outline: none;
+			padding: 0.6rem 0.3rem;
+			width: rem(280);
+
+			border: 1px solid rgb(232, 232, 232);
+			box-shadow: 0.5px 0.5px rgb(232, 232, 232);
+
+			&--no {
+				width: 10rem;
+			}
+		}
+		&--error {
+			color: red;
+			padding: 0;
+			margin: 0;
+
+			position: relative;
+		}
+	}
+	&__tc {
+		display: flex;
+		align-items: center;
+		padding-bottom: 0.7rem;
+
+		&--text {
+			font-family: $bodyFont;
+			font-weight: bolder;
+			cursor: pointer;
+			font-size: small;
+		}
+		&--checkbox {
+			margin-right: 0.5rem;
+			cursor: pointer;
+		}
+	}
+	&__button {
+		&--button {
+			background: $buttonBg;
+			outline: none;
+			border: none;
+			border-radius: 0.5rem;
+			padding: 0.7rem 3rem;
+			color: white;
+			font-size: large;
+			cursor: pointer;
+			&--text {
+				font-size: medium;
+			}
+		}
+	}
+}
