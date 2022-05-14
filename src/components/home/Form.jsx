@@ -5,7 +5,7 @@ const Form = () => {
 	const ConditionalLink = ({ children, to, condition }) =>
 		!!condition && to ? <Link to={to}>{children}</Link> : <>{children}</>;
 
-	const [linkCondition, setlinkCondition] = useState(true);
+	const [linkCondition, setlinkCondition] = useState(null);
 
 	const initialError = {
 		email: '',
@@ -51,23 +51,33 @@ const Form = () => {
 		if (!validateEmail(form.email)) {
 			updateError({ email: 'Enter a valid email' });
 			setTimeout(() => updateError({ email: '' }), 3000);
+			setlinkCondition(false);
 		}
 
 		if (form.password.length < 8) {
 			updateError({ password: 'Password must be greater then 8 character' });
 			setTimeout(() => updateError({ password: '' }), 3000);
+			setlinkCondition(false);
 		}
 
 		if (form.password !== form.confirmPassword) {
 			updateError({ confirmPassword: 'Confrim Password does not macth' });
 			setTimeout(() => updateError({ confirmPassword: '' }), 3000);
+			setlinkCondition(false);
 		}
-		if (!error.Form && !error.password && !error.number) {
+		if (
+			!error.Form &&
+			!error.password &&
+			!error.number &&
+			!error.confirmPassword
+		) {
+			setlinkCondition(true);
 		}
 
 		if (!validateNumber(form.number)) {
 			updateError({ number: 'Enter a valid 10 digit Number' });
 			setTimeout(() => updateError({ number: '' }), 3000);
+			setlinkCondition(false);
 		}
 	};
 
@@ -127,14 +137,14 @@ const Form = () => {
 					</span>
 				</div>
 				<div className="form__tc">
-					<input type="checkbox" className="form__tc--checkbox" />
+					<input type="checkbox" checked className="form__tc--checkbox" />
 
 					<p className="form__tc--text">
 						I read and agree terms and conditions
 					</p>
 				</div>
 				<div className="form__button">
-					<ConditionalLink to="/a" condition={!linkCondition}>
+					<ConditionalLink to="/a" condition={linkCondition}>
 						<button className="form__button--button" type="submit">
 							<span className="form__button--button--text">Create account</span>
 						</button>
