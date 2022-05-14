@@ -1,6 +1,12 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Form = () => {
+	const ConditionalLink = ({ children, to, condition }) =>
+		!!condition && to ? <Link to={to}>{children}</Link> : <>{children}</>;
+
+	const [linkCondition, setlinkCondition] = useState(true);
+
 	const initialError = {
 		email: '',
 		password: '',
@@ -44,24 +50,24 @@ const Form = () => {
 
 		if (!validateEmail(form.email)) {
 			updateError({ email: 'Enter a valid email' });
-			setTimeout(() => updateError({ email: '' }), 2500);
+			setTimeout(() => updateError({ email: '' }), 3000);
 		}
 
 		if (form.password.length < 8) {
 			updateError({ password: 'Password must be greater then 8 character' });
-			setTimeout(() => updateError({ password: '' }), 2500);
+			setTimeout(() => updateError({ password: '' }), 3000);
 		}
 
 		if (form.password !== form.confirmPassword) {
 			updateError({ confirmPassword: 'Confrim Password does not macth' });
-			setTimeout(() => updateError({ confirmPassword: '' }), 2500);
+			setTimeout(() => updateError({ confirmPassword: '' }), 3000);
 		}
 		if (!error.Form && !error.password && !error.number) {
 		}
 
 		if (!validateNumber(form.number)) {
 			updateError({ number: 'Enter a valid 10 digit Number' });
-			setTimeout(() => updateError({ number: '' }), 2500);
+			setTimeout(() => updateError({ number: '' }), 3000);
 		}
 	};
 
@@ -128,9 +134,11 @@ const Form = () => {
 					</p>
 				</div>
 				<div className="form__button">
-					<button className="form__button--button" type="submit">
-						<span className="form__button--button--text">Create account</span>
-					</button>
+					<ConditionalLink to="/a" condition={!linkCondition}>
+						<button className="form__button--button" type="submit">
+							<span className="form__button--button--text">Create account</span>
+						</button>
+					</ConditionalLink>
 				</div>
 			</form>
 		</>
