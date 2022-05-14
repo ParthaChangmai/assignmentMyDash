@@ -60,7 +60,7 @@ const Form = () => {
 		}
 
 		if (!validateNumber(form.number)) {
-			updateError({ number: 'Enter a valind 10 digit Number' });
+			updateError({ number: 'Enter a valid 10 digit Number' });
 			setTimeout(() => updateError({ number: '' }), 2500);
 		}
 	};
