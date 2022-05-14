@@ -1,0 +1,48 @@
+@use '../utils' as *;
+@import '../variables/Variable.scss';
+
+.notfound {
+	width: 100vh;
+	display: flex;
+	flex-direction: column;
+	margin-top: rem(120);
+
+	position: relative;
+	margin: 0 auto;
+	padding-right: 1rem;
+	padding-left: 1rem;
+	width: 100%;
+
+	align-items: center;
+	&__heading {
+		font-size: rem(200);
+		color: $errorHead;
+		@include breakpoint-down(medium) {
+			font-size: xx-large;
+		}
+	}
+	&__text {
+		font-size: rem(90);
+		@include breakpoint-down(medium) {
+			font-size: xx-large;
+		}
+	}
+	&__button {
+		background-color: $errorBtn;
+		padding: rem(30);
+		border-radius: rem(20);
+		@include breakpoint-down(medium) {
+			margin-top: rem(20);
+			padding: rem(15);
+			border-radius: rem(10);
+		}
+
+		&--link {
+			font-size: xx-large;
+			color: white;
+			@include breakpoint-down(medium) {
+				font-size: medium;
+			}
+		}
+	}
+}
