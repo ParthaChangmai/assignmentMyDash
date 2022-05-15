@@ -102,7 +102,7 @@ const Form = () => {
 						value={form.password}
 						onChange={(e) => updateForm({ password: e.target.value })}
 						className="form__body--input"
-						type="text"
+						type="password"
 					/>
 					<span className="form__body--error">
 						{error.password && error.password} <br></br>{' '}
@@ -113,7 +113,7 @@ const Form = () => {
 						value={form.confirmPassword}
 						onChange={(e) => updateForm({ confirmPassword: e.target.value })}
 						className="form__body--input"
-						type="text"
+						type="password"
 					/>
 					<span className="form__body--error">
 						{error.confirmPassword && error.confirmPassword} <br></br>{' '}
@@ -144,7 +144,7 @@ const Form = () => {
 					</p>
 				</div>
 				<div className="form__button">
-					<ConditionalLink to="/a" condition={linkCondition}>
+					<ConditionalLink to="/graph" condition={linkCondition}>
 						<button className="form__button--button" type="submit">
 							<span className="form__button--button--text">Create account</span>
 						</button>
