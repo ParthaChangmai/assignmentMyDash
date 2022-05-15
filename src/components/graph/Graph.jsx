@@ -22,25 +22,42 @@ const Graph = () => {
 		const svg = d3
 			.select(d3Ref.current)
 			.append('svg')
-			.attr('width', 1100)
+			.attr('width', 1060)
 			.attr('height', size);
 
 		const rect_width = 95;
+
 		svg
 			.selectAll(`rect`)
 
 			.data(dataset)
 			.enter()
 			.append(`rect`)
+
 			.attr('x', (d, i) => 10 + i * (rect_width + 10))
 			.attr('y', (d) => size - d)
+
 			.transition()
 			.duration(200)
+
 			.attr(`width`, rect_width)
 			.attr(`height`, (d) => d)
+
 			.attr('fill', () => {
-				return 'hsl(' + Math.random() * 480 + ',100%,50%)';
+				return 'hsl(' + Math.random() * 70 + ',100%,50%)';
 			});
+
+		svg
+			.append('text')
+			.text(function (d) {
+				return dataset[0];
+			})
+			.attr('x', rect_width / 2.2)
+			.attr('y', size - 5)
+			.attr('fill', 'black')
+			.attr('font-family', 'Times New Roman')
+			.attr('font-weight', 'bold')
+			.attr('fill', 'black');
 
 		return () => {
 			svg.remove('svg');
