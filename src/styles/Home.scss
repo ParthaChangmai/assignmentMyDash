@@ -7,10 +7,16 @@
 	justify-content: center;
 	align-items: center;
 	margin: auto;
+	border-radius: 0.7rem;
+	overflow: hidden;
+	border: 1px solid rgb(230, 230, 230);
+	box-shadow: 4px 0px rgb(241, 241, 241);
+	background-color: #f7f7f7;
 
 	@include breakpoint-down(medium) {
 		margin-top: rem(20);
-		width: 20vh;
+		background-color: white;
+		box-shadow: none;
 	}
 }
 
@@ -47,14 +53,11 @@
 }
 
 .form {
-	border: 1px solid rgb(232, 232, 232);
 	padding: 1rem 0 5rem 5rem;
 	margin-left: 0;
-	width: 50vh;
-	border-radius: 0.5rem;
-	outline: none;
-	box-shadow: 1px 2.5px rgb(168, 168, 168);
+	width: 29rem;
 	background-color: white;
+	border-left: 1px solid rgb(230, 230, 230);
 	@include breakpoint-down(medium) {
 		width: 24vh;
 		display: flex;
@@ -62,6 +65,8 @@
 		align-items: center;
 		padding: rem(70);
 		margin-top: rem(50);
+		border: none;
+		padding: 2.5rem;
 	}
 	&__heading {
 		font-weight: bolder;
@@ -74,6 +79,7 @@
 		@include breakpoint-down(medium) {
 			margin-top: -2.5rem;
 			margin-bottom: 0;
+			font-size: large;
 		}
 	}
 	&__body {
