@@ -1,4 +1,4 @@
-@use './utils' as *;
+@use './styles/utils/' as *;
 
 #root {
 	min-height: 100vh;
@@ -25,10 +25,4 @@ html {
 
 :root {
 	background-color: #f7f7f7;
-}
-
-.graph {
-	margin: 0;
-	display: grid;
-	place-items: center;
 }
