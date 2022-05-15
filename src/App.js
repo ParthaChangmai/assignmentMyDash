@@ -2,14 +2,14 @@ import Home from './components/home/Home';
 import './Global.scss';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/notFound/NotFound';
-import Chart from './components/chart/Chart';
+import Graph from './components/graph/Graph';
 
 function App() {
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/chart" element={<Chart />} />
+				<Route path="/graph" element={<Graph />} />
 				<Route path="/*" element={<NotFound />} />
 			</Routes>
 		</>
