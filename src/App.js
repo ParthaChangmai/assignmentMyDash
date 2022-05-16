@@ -3,7 +3,6 @@ import './Global.scss';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/notFound/NotFound';
 import Graph from './components/graph/Graph';
-import DemoGraph from './components/graph/DemoGraph';
 
 function App() {
 	return (
@@ -11,7 +10,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/graph" element={<Graph />} />
-				<Route path="/g" element={<DemoGraph />} />
+
 				<Route path="/*" element={<NotFound />} />
 			</Routes>
 		</>
