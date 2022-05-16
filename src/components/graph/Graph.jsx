@@ -48,7 +48,12 @@ const Graph = () => {
 			});
 
 		svg
-			.append('text')
+
+			.selectAll(`text`)
+
+			.data(dataset)
+			.enter()
+			.append(`text`)
 			.text(function (d) {
 				return dataset[0];
 			})
